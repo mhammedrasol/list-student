@@ -12,11 +12,13 @@ namespace Liststudent
         {
             public string Name { get; set; }
             public int Marks { get; set; }
+            public int Id { get; set; }
 
-            public Student(string name, int marks)
+            public Student(string name, int marks ,int id)
             {
                 Name = name;
                 Marks = marks;
+                Id = id;
             }
         }
         static void Main(string[] args)
@@ -25,7 +27,7 @@ namespace Liststudent
 
           
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine("\nEnter details for Student :"+i);
 
@@ -35,15 +37,17 @@ namespace Liststudent
 
                 Console.Write("Marks: ");
                 int marks = int.Parse(Console.ReadLine());
+                Console.Write("id: ");
+                int id = int.Parse(Console.ReadLine());
 
-                students.Add(new Student(name, marks));
+                students.Add(new Student(name, marks,id));
             }
 
             foreach (var student in students)
             {
                 if (student.Marks >= 50)
                 {
-                    Console.WriteLine("THE STUDENT IS PASS:"+student.Name);
+                    Console.WriteLine("THE STUDENT IS PASS:"+student.Name+"\n the id:"+student.Id);
                 }
             }
             Console.ReadLine();
